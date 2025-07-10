@@ -5,3 +5,4 @@ web3==5.31.4
 python-multipart
 python-dotenv
 requests
+openai
