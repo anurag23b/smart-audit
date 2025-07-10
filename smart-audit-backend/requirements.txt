@@ -1,8 +1,16 @@
-fastapi
-sqlmodel
-uvicorn
+fastapi==0.100.0
+sqlmodel==0.0.8
+uvicorn[standard]==0.22.0
+
+# LangChain + LLM wrapper
+langchain==0.1.14
+requests==2.31.0
+python-dotenv==1.0.1
+
+# Web3 support
 web3==5.31.4
-python-multipart
-python-dotenv
-requests
-openai
+eth-account==0.5.9
+eth-abi==2.2.0
+
+# File upload handling
+python-multipart==0.0.6
