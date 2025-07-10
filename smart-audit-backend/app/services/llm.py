@@ -1,39 +1,33 @@
-# ✅ FIXED `services/llm.py` using new `openai` SDK (>=1.0.0)
-from openai import OpenAI
-import os
-from dotenv import load_dotenv
+# app/services/llm.py
 
-load_dotenv()
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
+from app.llm.free_llm_wrapper import FreeLLMWrapper
 
-client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
-    api_key=os.getenv("OPENROUTER_API_KEY")
+llm = FreeLLMWrapper()
+
+prompt_template = PromptTemplate(
+    input_variables=["code", "slither_data", "mythril_data"],
+    template="""
+You are a smart contract auditor.
+Here is the Solidity code:
+{code}
+
+Slither Results:
+{slither_data}
+
+Mythril Results:
+{mythril_data}
+
+Give a detailed security summary and a letter grade (A to F).
+"""
 )
 
-def generate_llm_summary(source_code: str, slither_data, mythril_data):
-    prompt = f"""
-You are a smart contract security auditor. Given the Solidity code and the results from Slither and Mythril, provide:
-1. A security grade (A+ to F)
-2. A human-readable audit summary
-3. Vulnerability descriptions and suggestions
+chain = LLMChain(llm=llm, prompt=prompt_template)
 
-Contract:
-{source_code[:1500]}
-
-Slither:
-{str(slither_data)[:1000]}
-
-Mythril:
-{str(mythril_data)[:1000]}
-"""
-    try:
-        response = client.chat.completions.create(
-            model="mistralai/mistral-7b-instruct",
-            messages=[
-                {"role": "system", "content": "You are an expert smart contract security auditor."},
-                {"role": "user", "content": prompt}
-            ]
-        )
-        return response.choices[0].message.content
-    except Exception as e:
-        return f"Error with OpenRouter LLM: {str(e)}"
+def generate_llm_summary(code: str, slither_data: str, mythril_data: str) -> str:
+    return chain.run({
+        "code": code,
+        "slither_data": slither_data,
+        "mythril_data": mythril_data
+    })

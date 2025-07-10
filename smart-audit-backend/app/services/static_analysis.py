@@ -1,34 +1,12 @@
-import subprocess
+# smart-audit-backend/app/services/static_analysis.py
 
-def run_slither_analysis(contract_path: str) -> str:
-    """
-    Run Slither static analysis on the provided Solidity file.
-    Returns the output as a string.
-    """
-    try:
-        result = subprocess.run(
-            ["slither", contract_path],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-        return result.stdout
-    except subprocess.CalledProcessError as e:
-        return f"Slither analysis failed:\n{e.stderr}"
+from app.services.mythril_runner import run_mythril_docker
+from app.services.slither_runner import run_slither_docker
 
-
-def run_mythril_analysis(contract_path: str) -> str:
-    """
-    Run Mythril symbolic analysis on the provided Solidity file.
-    Returns the output as a string.
-    """
-    try:
-        result = subprocess.run(
-            ["myth", "analyze", contract_path],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-        return result.stdout
-    except subprocess.CalledProcessError as e:
-        return f"Mythril analysis failed:\n{e.stderr}"
+def run_static_analysis(file_path: str) -> dict:
+    mythril_result = run_mythril_docker(file_path)
+    slither_result = run_slither_docker(file_path)
+    return {
+        "mythril": mythril_result,
+        "slither": slither_result
+    }
