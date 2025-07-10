@@ -5,4 +5,3 @@ web3==6.10.0
 python-multipart
 python-dotenv
 requests==2.31.0
-slither-analyzer==0.10.0
