@@ -11,3 +11,4 @@ slither-analyzer
 mythril
 PyPDF2
 reportlab
+numpy==1.24.4
