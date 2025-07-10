@@ -1,4 +1,13 @@
 fastapi
 uvicorn
-openai
+sqlmodel
+web3
+python-dotenv
+aiofiles
+requests
+pydantic
 python-multipart
+slither-analyzer
+mythril
+PyPDF2
+reportlab
