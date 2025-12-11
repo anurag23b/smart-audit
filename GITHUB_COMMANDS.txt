@@ -1,0 +1,37 @@
+================================================================================
+                    GITHUB REPOSITORY SETUP COMMANDS
+================================================================================
+
+1. STAGE ALL FILES
+   cd /Users/anurag/Desktop/smart-audit
+   git add .
+
+2. REVIEW FILES TO BE COMMITTED (OPTIONAL)
+   git status
+
+3. CREATE INITIAL COMMIT
+   git commit -m "Initial release: Smart Audit – AI-Powered Smart Contract Auditor"
+
+4. SET MAIN BRANCH (if needed)
+   git branch -M main
+
+5. ADD REMOTE REPOSITORY
+   git remote add origin <YOUR-GITHUB-URL>
+   
+   Example:
+   git remote add origin https://github.com/anurag/smart-audit.git
+
+6. PUSH TO GITHUB
+   git push -u origin main
+
+================================================================================
+                         REPOSITORY METADATA
+================================================================================
+
+DESCRIPTION:
+AI-Powered Smart Contract Security Auditor • Slither + Mythril + LLM • CVSS scoring • NFT-based verification • CI/CD with GitHub Actions
+
+TOPICS/TAGS (copy and paste into GitHub repository topics):
+solidity, smart-contracts, audit, security, mythril, slither, llm, gpt4, blockchain, devsecops, fastapi, react, docker, ipfs, foundry
+
+================================================================================
