@@ -1,6 +1,0 @@
-{
-  "build": {
-    "dockerfilePath": "smart-audit-backend/Dockerfile",
-    "context": "smart-audit-backend"
-  }
-}
