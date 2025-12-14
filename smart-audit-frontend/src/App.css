@@ -1,0 +1,10 @@
+/* Minimal custom styles; Tailwind handles most styling */
+
+body {
+	background: #f7f9fc;
+	color: #0f172a;
+}
+
+#root {
+	min-height: 100vh;
+}
