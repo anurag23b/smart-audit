@@ -43,3 +43,4 @@ cp smart-audit-backend/env.example smart-audit-backend/.env.backend
 ## License
 MIT
 
+# smart-audit
