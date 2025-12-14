@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+venv.bak/
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# Frontend build
+smart-audit-frontend/node_modules/
+smart-audit-frontend/dist/
+dist/
+# Vite / editor
+.vscode/
+.idea/
+.DS_Store
+.env
+.env.*
+coverage/
+*.log
