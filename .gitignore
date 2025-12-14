@@ -25,3 +25,21 @@ dist/
 .env.*
 coverage/
 *.log
+# env / secrets
+.env
+*.env
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+# Node
+node_modules/
+dist/
+build/
+# Vite
+/.vite
+# macOS
+.DS_Store
+# logs
+*.log
